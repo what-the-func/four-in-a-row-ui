@@ -9,15 +9,6 @@
     const gs = new Game(<JsonRpcSigner>wallet.provider?.getSigner())
     gameService.set(gs)
   }
-
-  $: {
-    if ($chain.chainId && $chain.chainId !== '80001') {
-      gameService.set(undefined)
-      wallet.disconnect().then(() => {
-        alert('Please connect to Polygon')
-      })
-    }
-  }
 </script>
 
 <div class="width-full flex justify-center">
